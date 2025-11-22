@@ -1,0 +1,152 @@
+.hero{
+    padding: 0px 90px;
+    height: 90vh;
+}
+.headings{
+    width: 90%;
+    position: relative;
+    top: 10%;
+}
+.headings h3{
+    font-size: 26px;
+    font-weight: 600;
+}
+.head1 span{
+    color: #727272;
+}
+.headings h1{
+    font-size: 80px;
+    font-weight: 700;
+    line-height: 1.1;
+    position: relative;
+    top: -50px;
+}
+.powerful{
+    position: relative;
+    display: inline-block;
+    z-index: 1;
+}
+.powerful::after{
+    content: "";
+    position: absolute;
+    left: -2px;
+    bottom: -5px;
+    rotate: 4deg;
+    width: 100%;
+    height: 90px;
+    background-color: #d6ff2d;
+    z-index: -1;
+    border-radius: 6px;
+}
+.ic1{
+    font-size: 40px;
+    position: relative;
+    z-index: 1;
+    background-color: #d6ff2d;
+    border-radius: 50%;
+    padding: 10px;
+    top: 5px;
+}
+.resume{
+    position: relative;
+    display: inline-block;
+    z-index: 1;
+}
+.resume::after{
+    content: "";
+    position: absolute;
+    left: -2px;
+    bottom: -5px;
+    rotate: 3deg;
+    width: 100%;
+    height: 90px;
+    background-color: #dfdddd;
+    z-index: -1;
+    border-radius: 6px;
+}
+.ic2{
+    font-size: 40px;
+    position: relative;
+    z-index: 1;
+    display: inline-block;
+    background-color: #dfdddd;
+    border-radius: 50%;
+    padding: 10px;
+    top: 5px;
+    margin-right: 10px;
+}
+.head3{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    position: relative;
+    top: -50px;
+}
+.head3 p{
+    margin-right: 20px;
+    color: #727272;
+    font-weight: 500;
+    font-size: 16px;
+}
+.rev>:first-child{
+    position: relative;
+    margin-right: 10px;
+}
+.rev>:nth-child(2){
+    position: relative;
+    top: 10px;
+}
+.rev{
+    display: flex;
+}
+.buttons {
+    display: flex;
+    gap: 20px;
+    margin-top: -30px;
+}
+
+
+.buttons > :nth-child(1),
+.buttons > :nth-child(2) {
+    border: none;
+    font-size: 18px;
+    padding: 15px 40px;
+    border-radius: 20px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.buttons > :nth-child(1) {
+    background-color: #000;
+    color: #fff;
+}
+
+.buttons > :nth-child(2) {
+    background-color: #fff;
+    color: #000;
+    box-shadow: 4px 4px #888;
+}
+
+.btnText {
+    display: inline-block;
+    transform: translateY(0);
+    transition: transform 0.15s ease;
+    background-color: transparent;
+}
+
+.buttons button:hover .btnText {
+    animation: upAnim 0.15s ease forwards;
+}
+
+.buttons button:not(:hover) .btnText {
+    animation: downAnim 0.15s ease forwards;
+}
+
+@keyframes downAnim {
+    0% { transform: translateY(60px); }
+    100% { transform: translateY(0); }
+}
+@keyframes upAnim {
+    0% { transform: translateY(-60px); }
+    100% { transform: translateY(0); }
+}
