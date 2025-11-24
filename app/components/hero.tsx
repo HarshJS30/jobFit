@@ -1,8 +1,10 @@
+"use client"
 import styles from '../styles/hero.module.css';
 import { BsFillLightningChargeFill } from "react-icons/bs";
 import { CiGlobe } from "react-icons/ci";
 import Demo  from '../components/Avatargroup'
 import Navbar from './navbar';
+import Link from 'next/link';
 
 export function Hero(){
     return(
@@ -25,7 +27,7 @@ export function Hero(){
                 </div>
                 <div className={styles.buttons}>
                     <button className={styles.bts}>
-                        <span className={styles.btnText}>Try it for free!</span>
+                        <Link href='/auth' className={styles.btnText}>Try it for free!</Link>
                     </button>
 
                     <button className={styles.bts}>

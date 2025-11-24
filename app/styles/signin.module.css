@@ -1,0 +1,79 @@
+.auth{
+  background:
+    radial-gradient(#00000029 1px, transparent 1px);
+  background-size: 15px 15px;
+  background-color: transparent;
+  width: 100%;
+  height: 95vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.form{
+    background-color: transparent;
+}
+.authbox{
+    background-color: #fafafa;
+    width: 33%;
+    height: 70%;
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 25px;
+    box-shadow: rgba(0, 0, 0, 0.1) -4px 9px 25px -6px;
+}
+.authbox h2{
+    background-color: transparent;
+    font-size: 25px;
+    font-weight: 600;
+    position: relative;
+    top: 30px;
+}
+.authbox h6{
+    background-color: transparent;
+    font-size: 25px;
+    font-weight: 600;
+    position: relative;
+    top: -50px;
+    color: #727272;
+}
+.authbox h3{
+    font-weight: 100;
+    position: relative;
+    top: -90px;
+}
+.line{
+    width: 30%;
+    position: relative;
+    top: -47px;
+    left: 110px;
+}
+.line1{
+    width: 30%;
+    position: relative;
+    top: -132px;
+    left: -110px;
+}
+.bt1{
+    background-color: #000;
+    border: none;
+    color: #fff;
+    padding: 10px 30px;
+    border-radius: 25px;
+    position: relative;
+    top: -90px;
+    cursor: pointer;
+}
+.ic{
+    background-color: transparent;
+    position: relative;
+    top: 2px;
+    margin-right: 10px;
+}
+.img{
+    background-color: transparent;
+    position: relative;
+    top: 50px;
+}

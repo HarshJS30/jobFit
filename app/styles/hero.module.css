@@ -120,6 +120,10 @@
     background-color: #000;
     color: #fff;
 }
+.bts a{
+    color: #fff;
+    text-decoration: none;
+}
 
 .buttons > :nth-child(2) {
     background-color: #fff;
