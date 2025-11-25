@@ -75,3 +75,11 @@ model Authenticator {
 
   @@id([userId, credentialID])
 }
+model Resume {
+  id            String @id @default(cuid())
+  userId        String
+  filename      String
+  fileSize      Int
+  rawText       String 
+  createdAt     DateTime @default(now())
+}

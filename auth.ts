@@ -17,6 +17,20 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
       clientSecret: process.env.GITHUB_CLIENT_SECRET!,
     }),
   ],
+  session:{
+    strategy:"jwt"
+  },
+  pages:{
+    signIn:'/auth'
+  },
+  callbacks: {
+    async redirect({ url, baseUrl }) {
+      return "/dashboard";
+    },
+    authorized: async({auth})=>{
+      return !!auth
+    }
+  },
 });
 
 export const { GET, POST } = handlers;
