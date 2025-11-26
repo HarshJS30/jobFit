@@ -5,6 +5,7 @@ import {
   ColorModeProvider,
   type ColorModeProviderProps,
 } from "./color-mode"
+import { SessionProvider } from "next-auth/react"
 
 // Create a custom system with NO global styles
 const system = createSystem(defaultConfig, {
@@ -14,8 +15,10 @@ const system = createSystem(defaultConfig, {
 
 export function Provider(props: ColorModeProviderProps) {
   return (
-    <ChakraProvider value={system}>
-      <ColorModeProvider {...props} />
-    </ChakraProvider>
+    <SessionProvider>
+      <ChakraProvider value={system}>
+        <ColorModeProvider {...props} />
+      </ChakraProvider>
+    </SessionProvider>
   )
 }
