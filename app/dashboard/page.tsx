@@ -7,11 +7,13 @@ import React, { useState } from "react";
 import NavDash from '../components/nav-dash';
 import {useSession} from 'next-auth/react';
 import SignOut from '../components/signout';
+import { IoCloudUploadOutline } from "react-icons/io5";
 
 export default function PDFUpload() {
   const{data:session} = useSession();
   const [response, setResponse] = useState<any>(null);
   const [loading, setLoading] = useState(false);
+  const [selectedFileName, setSelectedFileName] = useState("");
 
   async function HandleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -37,20 +39,39 @@ export default function PDFUpload() {
   return (
     <div className={styles.upload}>
       <div className={styles.navhead}>
-        <Image src={img} alt='logo' width={100} height={100}></Image>
+        <Image src={img} alt='logo' width={100} height={100} className={styles.img}></Image>
         <h2>JobFit</h2>
         <div className={styles.comp}>
           <NavDash />
           <SignOut />
         </div>
       </div>
-      <h1>Welcome Back, {session?.user?.name}.</h1>
-      <h1>Your resume deserves to be read.</h1>
+      <div className={styles.content}>
+        <h1>Welcome Back, <span className={styles.name}>{session?.user?.name}.</span></h1>
+        <h1>Let's Tailor your <span className={styles.resume}>Resume.</span></h1>
+      </div>
       <form onSubmit={HandleSubmit} encType="multipart/form-data" className={styles.formm}>
-        <input type="file" name="file" accept="application/pdf" required />
+        <IoCloudUploadOutline className={styles.cloud}/>
+        <p className={styles.text}>Upload your resume here.</p>
+        <input
+          id="resumeInput"
+          type="file"
+          name="file"
+          accept="application/pdf"
+          required
+          style={{ display: "none" }}
+          onChange={(e) => setSelectedFileName(e.target.files?.[0]?.name || "")}
+        />
+        <button
+          type="button"
+          onClick={() => document.getElementById("resumeInput")?.click()}
+          className={styles.chooseBtn}
+        >
+          {selectedFileName ? selectedFileName : "Choose PDF"}
+        </button>
         <br />
-        <button type="submit" disabled={loading}>
-          {loading ? "Analyzing..." : "Upload"}
+        <button type="submit" disabled={loading} className={styles.cta1}>
+          {loading ? "Analyzing..." : "Upload Your Resume"}
         </button>
       </form>
 
