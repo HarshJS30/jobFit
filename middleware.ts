@@ -1,26 +1,14 @@
 // middleware.ts
-import { auth } from "@/auth";
-import { NextResponse } from "next/server";
+import NextAuth from "next-auth";
+import { authConfig } from "./ auth.config";
 
-export default auth((req) => {
-  const isLoggedIn = !!req.auth;
-  const isOnDashboard = req.nextUrl.pathname.startsWith("/dashboard");
-  const isOnUpload = req.nextUrl.pathname.startsWith("/upload");
-  const isOnResume = req.nextUrl.pathname.startsWith("/resume");
-  const isOnProtectedAPI = req.nextUrl.pathname.startsWith("/api/upload");
-
-  const isOnProtectedRoute = isOnDashboard || isOnUpload || isOnResume || isOnProtectedAPI;
-
-  if (isOnProtectedRoute && !isLoggedIn) {
-    return NextResponse.redirect(new URL("/auth", req.nextUrl));
-  }
-
-  return NextResponse.next();
-});
+export default NextAuth(authConfig).auth;
 
 export const config = {
   matcher: [
-    "/(dashboard|upload|resume)/:path*",
+    "/dashboard/:path*",
+    "/upload/:path*",
+    "/resume/:path*",
     "/api/upload/:path*"
   ],
 };

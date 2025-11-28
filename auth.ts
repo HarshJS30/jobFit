@@ -4,8 +4,10 @@ import Google from "next-auth/providers/google";
 import GitHub from "next-auth/providers/github";
 import { PrismaAdapter } from "@auth/prisma-adapter";
 import { prisma } from "./prisma/client";
+import { authConfig } from "./ auth.config";
 
 export const { handlers, signIn, signOut, auth } = NextAuth({
+  ...authConfig,
   adapter: PrismaAdapter(prisma),
   providers: [
     Google({
@@ -17,19 +19,14 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
       clientSecret: process.env.GITHUB_CLIENT_SECRET!,
     }),
   ],
-  session:{
-    strategy:"jwt"
-  },
-  pages:{
-    signIn:'/auth'
+  session: {
+    strategy: "jwt"
   },
   callbacks: {
+    ...authConfig.callbacks,
     async redirect({ url, baseUrl }) {
       return "/dashboard";
     },
-    authorized: async({auth})=>{
-      return !!auth
-    }
   },
 });
 
